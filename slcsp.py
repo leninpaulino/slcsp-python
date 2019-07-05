@@ -1,4 +1,5 @@
 import csv
+import sys
 
 silver_plans = list()
 solvable_rate_areas = set()
@@ -67,4 +68,9 @@ def load_zipcodes_rate_areas():
 if __name__ == "__main__":
     load_silver_plans()
     load_zipcodes_rate_areas()
-    process_slcsp_file()
+    if len(sys.argv) > 1:
+        zipcode = sys.argv[1]
+        print('zipcode,rate')
+        print(f"{zipcode},{get_rate(zipcode)}")
+    else:
+        process_slcsp_file()
