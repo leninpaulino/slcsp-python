@@ -34,7 +34,7 @@ def get_rate(zipcode):
 
 
 def get_silver_plans_by_rate_area(rate_area):
-    return list(filter(lambda silver_plan: silver_plan['rate_area'] == rate_area, silver_plans))
+    return [silver_plan for silver_plan in silver_plans if silver_plan['rate_area'] == rate_area]
 
 
 def get_slcsp(rates):
